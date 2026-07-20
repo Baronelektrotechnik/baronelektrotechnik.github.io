@@ -85,3 +85,6 @@
     });
   }
 })();
+
+/* De-index the github.io mirror only; .de stays fully indexable. */
+(function(){if(location.hostname.endsWith('github.io')){var m=document.createElement('meta');m.name='robots';m.content='noindex, nofollow';document.head.appendChild(m);}})();
