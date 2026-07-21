@@ -343,3 +343,9 @@ footer ul a:hover{color:#fff}
   .rev-up{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
 }
+
+/* Fix 2026-07: neues Logo schmaler in der Leiste, Navi nicht umbrechen, Footer-Logo ohne Weiss-Filter */
+.nav-logo img{height:28px}
+.nav-links{flex-wrap:nowrap}
+.nav-links a{white-space:nowrap}
+.f-brand img{filter:none}
