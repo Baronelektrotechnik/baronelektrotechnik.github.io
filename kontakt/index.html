@@ -51,11 +51,10 @@
     </div>
   </div>
   <div class="c-card rev-up">
-    <form id="kontakt-form" method="POST" action="https://api.web3forms.com/submit">
-      <input type="hidden" name="access_key" value="be2c338c-8f87-4025-abe3-df79fa9acde0">
-      <input type="hidden" name="subject" value="Neue Anfrage über baronelektrotechnik.de">
-      <input type="hidden" name="from_name" value="Website Baron Elektrotechnik">
+    <form id="kontakt-form" method="POST" action="/mail.php">
+      <input type="hidden" name="ts" value="">
       <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+      <div class="hp-feld" aria-hidden="true"><label for="hp-web">Website</label><input type="text" id="hp-web" name="firmenwebsite" tabindex="-1" autocomplete="off"></div>
       <div class="f-row f-field">
         <div><label for="vn">Vorname</label><input type="text" id="vn" name="vorname" autocomplete="given-name" required></div>
         <div><label for="nn">Nachname</label><input type="text" id="nn" name="nachname" autocomplete="family-name" required></div>
@@ -71,7 +70,7 @@
       </div>
       <div class="f-field"><label for="anl">Ihr Anliegen</label><textarea id="anl" name="anliegen" placeholder="Beschreiben Sie Ihr Projekt kurz – z. B. Objekt, Standort, Zeitrahmen." required></textarea></div>
       <button type="submit" class="btn btn-green" style="width:100%;justify-content:center">Nachricht absenden</button>
-      <p class="form-note">Mit dem Absenden stimmen Sie unserer <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
+      <p class="form-note">Mit dem Absenden verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Wie das geschieht, steht in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
       <div class="form-ok hidden">✓ Danke für Ihre Nachricht. Wir melden uns innerhalb von 24 Stunden bei Ihnen.</div>
       <div class="form-err hidden">Da ist etwas schiefgelaufen. Rufen Sie uns an: <a href="tel:+496987001743">069 87 00 17 43-0</a></div>
     </form>
