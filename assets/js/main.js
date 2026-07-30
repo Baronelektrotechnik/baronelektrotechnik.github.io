@@ -65,29 +65,21 @@
     box.replaceWith(f);
   };
 
-  /* Kontaktformular an /mail.php, ohne Seitenwechsel */
+  /* Netlify-Formular ohne Seitenwechsel */
   var form=document.getElementById('kontakt-form');
   if(form){
-    var tsFeld=form.querySelector('input[name="ts"]');
-    if(tsFeld){tsFeld.value=String(Date.now());}
     form.addEventListener('submit',function(e){
       e.preventDefault();
       var btn=form.querySelector('button[type="submit"]');
-      btn.disabled=true;btn.textContent='Wird gesendet\u2026';
+      btn.disabled=true;btn.textContent='Wird gesendet…';
       fetch(form.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
         .then(function(r){
-          return r.json().then(function(d){return {ok:r.ok&&d.ok!==false,msg:d.message||''};},
-                               function(){return {ok:r.ok,msg:''};});
-        })
-        .then(function(res){
-          if(!res.ok){var fehler=new Error(res.msg);fehler.vomServer=true;throw fehler;}
+          if(!r.ok)throw new Error('send');
           form.querySelector('.form-ok').classList.remove('hidden');
-          form.querySelectorAll('.f-field,.f-row,button,.form-note,.hp-feld').forEach(function(el){el.classList.add('hidden');});
+          form.querySelectorAll('.f-field,.f-row,button,.form-note').forEach(function(el){el.classList.add('hidden');});
         })
-        .catch(function(err){
-          var box=form.querySelector('.form-err');
-          if(err&&err.vomServer&&err.message){box.textContent=err.message;}
-          box.classList.remove('hidden');
+        .catch(function(){
+          form.querySelector('.form-err').classList.remove('hidden');
           btn.disabled=false;btn.textContent='Nachricht absenden';
         });
     });

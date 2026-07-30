@@ -349,6 +349,3 @@ footer ul a:hover{color:#fff}
 .nav-links{flex-wrap:nowrap}
 .nav-links a{white-space:nowrap}
 .f-brand img{filter:none}
-
-/* Fix 2026-07: Honeypot-Feld fuer das Kontaktformular unsichtbar halten */
-.hp-feld{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
