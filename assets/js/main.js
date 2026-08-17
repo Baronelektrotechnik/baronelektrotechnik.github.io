@@ -1,3 +1,6 @@
+/* Google Tag gtag.js - Google Ads AW-17701503501 */
+(function(){if(location.hostname.endsWith('github.io'))return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','AW-17701503501');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-17701503501';(document.head||document.documentElement).appendChild(s);})();
+
 /* Baron Elektrotechnik — main.js (2026) */
 (function(){
   'use strict';
