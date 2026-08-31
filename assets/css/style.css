@@ -349,3 +349,8 @@ footer ul a:hover{color:#fff}
 .nav-links{flex-wrap:nowrap}
 .nav-links a{white-space:nowrap}
 .f-brand img{filter:none}
+
+/* --- Kontaktseite: Formular volle Breite, Infokarten darunter --- */
+.contact-stack{max-width:1040px;margin:0 auto}
+.contact-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,32px);margin-top:clamp(20px,2.5vw,32px)}
+@media(max-width:820px){.contact-info-grid{grid-template-columns:1fr}}
