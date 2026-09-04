@@ -354,3 +354,19 @@ footer ul a:hover{color:#fff}
 .contact-stack{max-width:1040px;margin:0 auto}
 .contact-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,32px);margin-top:clamp(20px,2.5vw,32px)}
 @media(max-width:820px){.contact-info-grid{grid-template-columns:1fr}}
+
+
+/* --- Navigation: 8 Punkte, Telefonnummer darf nicht umbrechen --- */
+.nav-tel{white-space:nowrap}
+.nav-tel span{white-space:nowrap}
+.nav-cta{white-space:nowrap}
+@media(min-width:961px) and (max-width:1340px){
+  .nav-links{gap:0}
+  .nav-links a{padding:9px 10px;font-size:14px}
+  .nav-tel{padding:9px 10px;font-size:14px}
+  .nav-cta{padding:11px 16px;font-size:14px}
+}
+
+/* --- Grüner CTA (Karriere) --- */
+.nav-cta-green{background:var(--green)}
+.nav-cta-green:hover{background:var(--green-dark)}
