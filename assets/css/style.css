@@ -371,3 +371,14 @@ footer ul a:hover{color:#fff}
 /* --- Nav-Buttons durchgehend im Corporate-Gruen --- */
 .nav-cta,.nav-cta-green{background:var(--green);box-shadow:0 8px 24px rgba(77,119,78,.30)}
 .nav-cta:hover,.nav-cta-green:hover{background:var(--green-dark)}
+
+
+/* --- Kein horizontales Verschieben der Seite --- */
+/* Ursache: die lange Adresse joshua.moritz@baronelektrotechnik.de hat keine
+   Trennstelle und sprengt auf schmalen Displays die Infokarte. overflow-x
+   stand bisher nur auf body, das allein haelt html nicht davon ab zu scrollen. */
+html{overflow-x:clip}
+.cinfo .val,.cinfo .val a{overflow-wrap:anywhere}
+.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.split>*{min-width:0}
+@media(max-width:960px){.split{grid-template-columns:minmax(0,1fr)}}
