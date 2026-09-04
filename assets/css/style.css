@@ -368,6 +368,6 @@ footer ul a:hover{color:#fff}
 .nav-tel span{white-space:nowrap}
 .nav-cta{padding:11px 18px;font-size:14px;flex-shrink:0;white-space:nowrap}
 
-/* --- Grüner CTA (Karriere) --- */
-.nav-cta-green{background:var(--green)}
-.nav-cta-green:hover{background:var(--green-dark)}
+/* --- Nav-Buttons durchgehend im Corporate-Gruen --- */
+.nav-cta,.nav-cta-green{background:var(--green);box-shadow:0 8px 24px rgba(77,119,78,.30)}
+.nav-cta:hover,.nav-cta-green:hover{background:var(--green-dark)}
