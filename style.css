@@ -354,3 +354,17 @@ footer ul a:hover{color:#fff}
 .contact-stack{max-width:1040px;margin:0 auto}
 .contact-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,32px);margin-top:clamp(20px,2.5vw,32px)}
 @media(max-width:820px){.contact-info-grid{grid-template-columns:1fr}}
+
+/* Zwei-Klick-Lösung Anfrageformular (Jotform) */
+.form-consent{min-height:460px}
+@media (max-width:600px){.form-consent{min-height:380px;padding:32px 22px}}
+
+/* Cookie-Banner */
+.cc-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;display:flex;justify-content:center;pointer-events:none}
+.cc-inner{pointer-events:auto;max-width:640px;width:100%;background:var(--pine);color:#fff;border-radius:var(--r-lg);padding:22px 24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.cc-inner b{font-family:var(--disp);font-size:17px}
+.cc-inner p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.78);margin:8px 0 16px}
+.cc-inner p a{color:#fff}
+.cc-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cc-btns .btn{flex:1 1 160px;justify-content:center;padding:13px 20px;font-size:14.5px;box-shadow:none}
+@media (max-width:600px){.cc-banner{left:10px;right:10px;bottom:10px}.cc-inner{padding:18px}}
