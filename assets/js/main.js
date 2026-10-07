@@ -1,6 +1,3 @@
-/* Google Tag gtag.js - Google Ads AW-17701503501 */
-(function(){if(location.hostname.endsWith('github.io'))return;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','AW-17701503501');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-17701503501';(document.head||document.documentElement).appendChild(s);})();
-
 /* Baron Elektrotechnik — main.js (2026) */
 (function(){
   'use strict';
@@ -55,18 +52,87 @@
     }
   }
 
-  /* Google Maps erst nach Klick (Datenschutz) */
-  window.loadMap=function(btn){
-    var box=btn.closest('.map-consent');
-    if(!box)return;
+  /* ===== Einwilligung externe Dienste (Google Ads, Google Maps, Jotform) ===== */
+  var CKEY='be-consent',CVER=1,CMAX=365*864e5,adsLoaded=false;
+  function getConsent(){
+    try{var c=JSON.parse(localStorage.getItem(CKEY));
+      if(c&&c.v===CVER&&(Date.now()-c.t)<CMAX)return c;}catch(e){}
+    return null;
+  }
+  function setConsent(all){
+    try{localStorage.setItem(CKEY,JSON.stringify({v:CVER,all:all,t:Date.now()}));}catch(e){}
+  }
+  function loadAds(){
+    if(adsLoaded||location.hostname.endsWith('github.io'))return;
+    adsLoaded=true;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+    gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+    gtag('js',new Date());gtag('config','AW-17701503501');
+    var sc=document.createElement('script');sc.async=true;
+    sc.src='https://www.googletagmanager.com/gtag/js?id=AW-17701503501';
+    document.head.appendChild(sc);
+  }
+  function embedMap(box){
     var f=document.createElement('iframe');
-    f.className='map-frame';
-    f.loading='lazy';
+    f.className='map-frame';f.loading='lazy';
     f.referrerPolicy='no-referrer-when-downgrade';
     f.title='Google Maps — Baron Elektrotechnik GmbH, Kruppstraße 112, 60388 Frankfurt am Main';
     f.src='https://www.google.com/maps?q=Baron+Elektrotechnik+GmbH,+Kruppstra%C3%9Fe+112,+60388+Frankfurt+am+Main&z=15&output=embed';
     box.replaceWith(f);
-  };
+  }
+  function embedForm(box){
+    var id='JotFormIFrame-262423372826963';
+    var f=document.createElement('iframe');
+    f.id=id;f.title='Anfrageformular Baron Elektrotechnik';
+    f.setAttribute('allowtransparency','true');
+    f.setAttribute('allow','geolocation; microphone; camera; fullscreen; payment');
+    f.setAttribute('scrolling','no');
+    f.src='https://heroautomation.jotform.com/262423372826963';
+    f.style.cssText='min-width:100%;max-width:100%;height:539px;border:none;display:block';
+    box.replaceWith(f);
+    var sc=document.createElement('script');
+    sc.src='https://heroautomation.jotform.com/s/umd/latest/for-form-embed-handler.js';
+    sc.onload=function(){if(window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='"+id+"']","https://heroautomation.jotform.com/");};
+    document.body.appendChild(sc);
+  }
+  function unlockAll(){
+    loadAds();
+    document.querySelectorAll('.form-consent').forEach(embedForm);
+    document.querySelectorAll('.map-consent').forEach(embedMap);
+  }
+  /* Einzelfreigabe per Klick in der Box (gilt nur für diesen Seitenaufruf) */
+  window.loadMap=function(btn){var b=btn.closest('.map-consent');if(b)embedMap(b);};
+  window.loadForm=function(btn){var b=btn.closest('.form-consent');if(b)embedForm(b);};
+
+  var banner=null;
+  function closeBanner(){if(banner){banner.remove();banner=null;}}
+  function openBanner(){
+    if(banner)return;
+    banner=document.createElement('div');
+    banner.className='cc-banner';banner.setAttribute('role','dialog');
+    banner.setAttribute('aria-label','Cookie-Einstellungen');
+    banner.innerHTML='<div class="cc-inner"><b>Cookies und externe Inhalte</b>'+
+      '<p>Wir nutzen Google Ads, um den Erfolg unserer Werbung zu messen, sowie Google Maps (Anfahrtskarte) und Jotform (Anfrageformular). Diese Dienste setzen Cookies und übertragen Daten, teils in die USA. Mit „Akzeptieren“ willigen Sie in alle drei ein. Sie können Ihre Wahl jederzeit über „Cookie-Einstellungen“ im Seitenfuß ändern. Details in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.</p>'+
+      '<div class="cc-btns"><button type="button" class="btn btn-soft" data-cc="no">Nur notwendige</button>'+
+      '<button type="button" class="btn btn-green" data-cc="yes">Akzeptieren</button></div></div>';
+    banner.addEventListener('click',function(e){
+      var t=e.target.closest('[data-cc]');if(!t)return;
+      var yes=t.getAttribute('data-cc')==='yes';
+      var had=getConsent();
+      setConsent(yes);closeBanner();
+      if(yes)unlockAll();
+      else if(had&&had.all)location.reload(); /* Widerruf: geladene Dienste entfernen */
+    });
+    document.body.appendChild(banner);
+  }
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-consent-open]')){e.preventDefault();openBanner();}
+  });
+  var cur=getConsent();
+  if(!cur)openBanner();
+  else if(cur.all)unlockAll();
 
   /* Netlify-Formular ohne Seitenwechsel */
   var form=document.getElementById('kontakt-form');
