@@ -382,3 +382,18 @@ html{overflow-x:clip}
 .split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .split>*{min-width:0}
 @media(max-width:960px){.split{grid-template-columns:minmax(0,1fr)}}
+
+/* Zwei-Klick-Lösung Anfrageformular (Jotform) */
+.form-consent{min-height:460px}
+@media (max-width:600px){.form-consent{min-height:380px;padding:32px 22px}}
+
+/* Cookie-Banner: sofort sichtbar, mittig, über allem */
+.cc-banner{position:fixed;inset:0;z-index:10000;display:flex;align-items:flex-end;justify-content:center;padding:16px;background:rgba(13,36,23,.35)}
+.cc-inner{width:100%;max-width:640px;max-height:calc(100vh - 32px);overflow-y:auto;background:var(--pine);color:#fff;border-radius:var(--r-lg);padding:24px 26px;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:left}
+.cc-inner b{display:block;font-family:var(--disp);font-size:18px;color:#fff}
+.cc-inner p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.8);margin:8px 0 18px;overflow-wrap:break-word}
+.cc-inner p a{color:#fff;text-decoration:underline}
+.cc-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cc-btns .btn{flex:1 1 180px;justify-content:center;padding:14px 20px;font-size:15px;box-shadow:none}
+@media (min-width:700px){.cc-banner{align-items:center}}
+@media (max-width:600px){.cc-banner{padding:10px}.cc-inner{padding:20px 18px}.cc-btns .btn{flex-basis:100%}}
