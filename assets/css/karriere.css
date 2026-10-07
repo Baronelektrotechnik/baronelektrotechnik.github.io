@@ -1,0 +1,157 @@
+/* Karriereseite / Recruiting-Landingpage (nur /karriere/)
+   Mobile first: Formular nach max. drei Wischbewegungen erreichbar. */
+
+.pg-karriere main{display:block}
+.pg-karriere section.k-sec{padding:28px var(--pad)}
+.pg-karriere h2{font-size:clamp(25px,3.2vw,40px);line-height:1.12}
+#bewerbung{scroll-margin-top:84px}
+
+/* Buttons */
+.k-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 24px;border-radius:999px;font-family:var(--body);font-weight:600;font-size:17px;text-decoration:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,background .2s ease}
+.k-btn:active{transform:scale(.98)}
+.k-btn-main{background:var(--leaf);color:var(--pine);width:100%}
+.k-btn-main:hover{background:#a3ebad}
+.k-btn-line{background:#fff;color:var(--pine);border:1.5px solid var(--line)}
+.k-btn-wa{background:#1F7A45;color:#fff}
+.k-btn:focus-visible,.k-opt input:focus-visible+span,.k-form input:focus-visible,.k-det summary:focus-visible,.k-sticky:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+/* Hero */
+.k-hero{padding:86px 10px 0}
+.k-hero-in{max-width:1240px;margin:0 auto;background:var(--pine);color:#fff;border-radius:var(--r-lg);padding:28px 22px 26px;position:relative;overflow:hidden}
+.k-hero-in::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:34px solid rgba(143,226,155,.07);pointer-events:none}
+.k-crumb{display:none;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px}
+.k-crumb a{color:rgba(255,255,255,.75)}
+.k-hero h1{font-size:clamp(29px,5.6vw,64px);line-height:1.06;letter-spacing:-.03em;font-weight:700;max-width:18ch;color:#fff}
+.k-lead{margin-top:14px;font-size:16px;line-height:1.55;color:rgba(255,255,255,.75);max-width:52ch}
+.k-pay{margin:20px 0 18px;padding:14px 18px;border-radius:var(--r-sm);background:rgba(143,226,155,.1);border:1px solid rgba(143,226,155,.28);display:flex;flex-direction:column;gap:2px;max-width:440px}
+.k-pay-label{font-size:13px;color:var(--leaf)}
+.k-pay-value{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.2;letter-spacing:-.02em;color:#fff;overflow-wrap:anywhere}
+.k-pay-note{font-size:13.5px;color:rgba(255,255,255,.65)}
+.k-hero .k-btn-main{max-width:440px}
+.k-micro{margin-top:12px;font-size:13.5px;color:rgba(255,255,255,.62)}
+.k-micro-dark{color:var(--sub);text-align:center}
+
+/* Drei Vorteile */
+.k-perk-list{list-style:none;max-width:1240px;margin:0 auto;display:grid;gap:18px}
+.k-perk-list li{display:flex;gap:14px;align-items:flex-start}
+.k-ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--mint);color:var(--green-dark);display:flex;align-items:center;justify-content:center}
+.k-perk-list h2{font-size:19px;letter-spacing:-.01em;line-height:1.25}
+.k-perk-list p{font-size:15px;line-height:1.5;color:var(--sub);margin-top:3px}
+
+/* Team mit Hochkant-Video */
+.pg-karriere section.k-team{padding-top:4px;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:38% 1fr;gap:18px;align-items:center}
+.k-video{position:relative;aspect-ratio:9/16;border-radius:var(--r-md);overflow:hidden;background:var(--pine-2);margin:0}
+.k-video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.k-video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px;text-align:center;color:rgba(255,255,255,.75);background:radial-gradient(circle at 50% 38%,rgba(143,226,155,.16),transparent 62%)}
+.k-play{width:52px;height:52px;border-radius:50%;background:rgba(143,226,155,.18);color:var(--leaf);display:flex;align-items:center;justify-content:center;padding-left:3px}
+.k-video-ph-t{font-size:13px;line-height:1.35}
+.k-video.has-video .k-video-ph{display:none}
+.k-team-txt h2{font-size:clamp(22px,3vw,40px)}
+.k-team-txt p{margin-top:10px;font-size:15px;line-height:1.55;color:var(--sub)}
+
+/* Stelle */
+.pg-karriere section.k-job{padding-left:10px;padding-right:10px;padding-top:8px}
+.k-job-in{max-width:1240px;margin:0 auto;background:var(--pine);color:#fff;border-radius:var(--r-lg);padding:24px 16px 16px}
+.k-job-in h2{color:#fff;font-size:clamp(22px,3vw,40px)}
+.k-job-sub{margin-top:10px;font-size:15px;line-height:1.55;color:rgba(255,255,255,.72);max-width:62ch}
+.k-acc{margin-top:16px;display:grid;gap:10px}
+.k-det{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:var(--r-sm)}
+.k-det summary{list-style:none;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;font-family:var(--disp);font-weight:600;font-size:18px;color:#fff}
+.k-det summary::-webkit-details-marker{display:none}
+.k-det summary::after{content:"";flex-shrink:0;width:10px;height:10px;border-right:2px solid var(--leaf);border-bottom:2px solid var(--leaf);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+.k-det[open] summary::after{transform:rotate(225deg) translate(-2px,-2px)}
+.k-det p{padding:0 18px 18px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.78)}
+
+/* Formular */
+.pg-karriere section.k-apply{max-width:640px;margin:0 auto;padding-top:36px}
+.k-apply-head p{margin-top:8px;color:var(--sub);font-size:15.5px}
+.k-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:20px 18px;box-shadow:var(--shadow-sm)}
+.k-form{display:grid;gap:18px}
+.k-field{border:none;margin:0;padding:0;min-width:0}
+.k-field>label,.k-field legend{display:block;font-weight:600;font-size:15px;margin-bottom:7px;color:var(--ink);padding:0}
+.k-form input[type=text],.k-form input[type=tel]{width:100%;min-height:56px;padding:12px 16px;font:inherit;font-size:17px;color:var(--ink);background:var(--mint-2);border:1.5px solid var(--line);border-radius:var(--r-sm);-webkit-appearance:none;appearance:none}
+.k-form input[type=text]:focus,.k-form input[type=tel]:focus{border-color:var(--green);background:#fff}
+.k-form .is-bad{border-color:#B3261E!important}
+.k-opts{display:grid;gap:8px}
+.k-opts-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.k-opt{position:relative;display:block}
+.k-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.k-opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:8px 10px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff;font-size:15.5px;font-weight:500;line-height:1.2;cursor:pointer;transition:background .15s,border-color .15s}
+.k-opt input:checked+span{background:var(--mint);border-color:var(--green);color:var(--green-dark);font-weight:600}
+.k-check{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--sub);cursor:pointer}
+.k-check input{flex-shrink:0;width:26px;height:26px;margin:0;accent-color:var(--green)}
+.k-check a{color:var(--green-dark)}
+.k-err{margin-top:6px;font-size:13.5px;color:#B3261E}
+.k-submit{background:var(--green);color:#fff}
+.k-submit:hover{background:var(--green-dark)}
+.k-submit[disabled]{opacity:.7;cursor:wait}
+.k-status{padding:12px 14px;border-radius:var(--r-sm);background:#FCEEEE;color:#8C1D18;font-size:14.5px;line-height:1.5}
+.k-status a{color:#8C1D18;font-weight:600}
+.k-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.k-done{text-align:center;padding:16px 4px}
+.k-done:focus{outline:none}
+.k-done-ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:var(--mint);color:var(--green-dark);display:flex;align-items:center;justify-content:center}
+.k-done h3{font-size:22px;color:var(--ink)}
+.k-done p{margin-top:8px;color:var(--sub);font-size:15.5px}
+
+/* Alternative Kontaktwege */
+.k-alt{margin-top:22px}
+.k-alt-h{font-weight:600;font-size:15px;margin-bottom:10px}
+.k-alt-btns{display:grid;gap:10px}
+.k-mail{margin-top:14px;font-size:14px;color:var(--sub)}
+.k-mail a{color:var(--green-dark)}
+.k-legal{margin-top:6px;font-size:12.5px;color:var(--sub)}
+.k-legal a{color:inherit}
+
+/* Ablauf */
+.pg-karriere section.k-flow{max-width:640px;margin:0 auto}
+.k-steps{list-style:none;margin-top:18px;display:grid;gap:16px}
+.k-steps li{display:flex;gap:14px;align-items:flex-start}
+.k-n{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--pine);color:var(--leaf);font-family:var(--disp);font-weight:700;display:flex;align-items:center;justify-content:center}
+.k-steps h3{font-size:17px;color:var(--ink);line-height:1.3}
+.k-steps p{font-size:15px;color:var(--sub);margin-top:2px}
+.k-discreet{margin-top:20px;padding:14px 16px;border-radius:var(--r-sm);background:var(--mint-2);font-size:15px;color:var(--sub)}
+.k-discreet b{color:var(--ink)}
+
+/* Kontakt */
+.pg-karriere section.k-contact{max-width:1240px;margin:0 auto;display:grid;gap:20px;padding-bottom:56px}
+.k-contact-img{border-radius:var(--r-lg);overflow:hidden}
+.k-contact-img img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.k-contact-txt p{margin-top:10px;color:var(--sub);font-size:15.5px;line-height:1.6}
+.k-contact-txt a{color:var(--green-dark)}
+
+/* Fixierter Bewerben-Button (nur mobil) */
+.k-sticky{display:none}
+@media(max-width:960px){
+  .k-sticky{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:400;min-height:56px;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;font-size:17px;text-decoration:none;box-shadow:0 12px 34px rgba(13,36,23,.32);transition:transform .25s ease,opacity .25s ease}
+  .k-sticky.is-off{transform:translateY(140%);opacity:0;pointer-events:none}
+}
+
+/* Tablet / Desktop */
+@media(min-width:720px){
+  .k-perk-list{grid-template-columns:repeat(3,1fr);gap:28px}
+  .k-alt-btns{grid-template-columns:1fr 1fr}
+  .k-card{padding:30px}
+}
+@media(min-width:961px){
+  .k-hero{padding:120px var(--pad) 0}
+  .k-hero-in{padding:56px 56px 52px}
+  .k-crumb{display:block}
+  .pg-karriere section.k-sec{padding-top:64px;padding-bottom:64px}
+  .pg-karriere section.k-team{grid-template-columns:300px 1fr;gap:56px;padding-left:var(--pad);padding-right:var(--pad)}
+  .pg-karriere section.k-job{padding-left:var(--pad);padding-right:var(--pad)}
+  .k-job-in{padding:56px}
+  .k-acc{grid-template-columns:repeat(3,1fr);align-items:start}
+  .pg-karriere section.k-contact{grid-template-columns:1.4fr 1fr;align-items:center;gap:48px}
+}
+@media(prefers-reduced-motion:reduce){.k-btn,.k-sticky,.k-det summary::after{transition:none}}
+
+/* Fixes: hidden-Attribut gegen display-Regeln absichern, Checkbox eigenes Styling */
+.pg-karriere [hidden]{display:none!important}
+.k-field>.k-check{display:flex;font-weight:400;font-size:14.5px;color:var(--sub);margin:0}
+.k-check input{-webkit-appearance:none;appearance:none;border:1.5px solid #B9C7B8;border-radius:8px;background:#fff center/16px no-repeat;cursor:pointer}
+.k-check input:checked{background-color:var(--green);border-color:var(--green);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+.k-check input.is-bad{border-color:#B3261E}
+.k-check input{padding:0;width:26px;height:26px;min-width:26px}
+.k-opt input{padding:0;border:0}
+.k-opts-3 .k-opt span{padding:8px 4px;white-space:nowrap;font-size:15px}
