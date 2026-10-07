@@ -1,0 +1,82 @@
+/* Karriereseite: Bewerbungsformular, Kontaktwege, fixierter Bewerben-Button (nur /karriere/) */
+
+/* Buttons */
+.k-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 24px;border-radius:999px;font-family:var(--body);font-weight:600;font-size:17px;text-decoration:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,background .2s ease}
+.k-btn:active{transform:scale(.98)}
+.k-btn-main{background:var(--leaf);color:var(--pine);width:100%}
+.k-btn-main:hover{background:#a3ebad}
+.k-btn-line{background:#fff;color:var(--pine);border:1.5px solid var(--line)}
+.k-btn-wa{background:#1F7A45;color:#fff}
+.k-btn:focus-visible,.k-opt input:focus-visible+span,.k-form input:focus-visible,.k-det summary:focus-visible,.k-sticky:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+.k-micro{margin-top:12px;font-size:13.5px}
+.k-micro-dark{color:var(--sub);text-align:center}
+
+/* Formular */
+.k-form{display:grid;gap:18px}
+.k-field{border:none;margin:0;padding:0;min-width:0}
+.k-field>label,.k-field legend{display:block;font-weight:600;font-size:15px;margin-bottom:7px;color:var(--ink);padding:0}
+.k-form input[type=text],.k-form input[type=tel]{width:100%;min-height:56px;padding:12px 16px;font:inherit;font-size:17px;color:var(--ink);background:var(--mint-2);border:1.5px solid var(--line);border-radius:var(--r-sm);-webkit-appearance:none;appearance:none}
+.k-form input[type=text]:focus,.k-form input[type=tel]:focus{border-color:var(--green);background:#fff}
+.k-form .is-bad{border-color:#B3261E!important}
+.k-opts{display:grid;gap:8px}
+.k-opts-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.k-opt{position:relative;display:block}
+.k-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.k-opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:8px 10px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#fff;font-size:15.5px;font-weight:500;line-height:1.2;cursor:pointer;transition:background .15s,border-color .15s}
+.k-opt input:checked+span{background:var(--mint);border-color:var(--green);color:var(--green-dark);font-weight:600}
+.k-check{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--sub);cursor:pointer}
+.k-check input{flex-shrink:0;width:26px;height:26px;margin:0;accent-color:var(--green)}
+.k-check a{color:var(--green-dark)}
+.k-err{margin-top:6px;font-size:13.5px;color:#B3261E}
+.k-submit{background:var(--green);color:#fff}
+.k-submit:hover{background:var(--green-dark)}
+.k-submit[disabled]{opacity:.7;cursor:wait}
+.k-status{padding:12px 14px;border-radius:var(--r-sm);background:#FCEEEE;color:#8C1D18;font-size:14.5px;line-height:1.5}
+.k-status a{color:#8C1D18;font-weight:600}
+.k-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.k-done{text-align:center;padding:16px 4px}
+.k-done:focus{outline:none}
+.k-done-ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:var(--mint);color:var(--green-dark);display:flex;align-items:center;justify-content:center}
+.k-done h3{font-size:22px;color:var(--ink)}
+.k-done p{margin-top:8px;color:var(--sub);font-size:15.5px}
+
+/* Alternative Kontaktwege */
+.k-alt{margin-top:22px}
+.k-alt-h{font-weight:600;font-size:15px;margin-bottom:10px}
+.k-alt-btns{display:grid;gap:10px}
+.k-mail{margin-top:14px;font-size:14px;color:var(--sub)}
+.k-mail a{color:var(--green-dark)}
+.k-legal{margin-top:6px;font-size:12.5px;color:var(--sub)}
+.k-legal a{color:inherit}
+
+/* Fixierter Bewerben-Button (nur mobil) */
+.k-sticky{display:none}
+@media(max-width:960px){
+  .k-sticky{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:400;min-height:56px;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;font-size:17px;text-decoration:none;box-shadow:0 12px 34px rgba(13,36,23,.32);transition:transform .25s ease,opacity .25s ease}
+  .k-sticky.is-off{transform:translateY(140%);opacity:0;pointer-events:none}
+}
+
+@media(prefers-reduced-motion:reduce){.k-btn,.k-sticky,.k-det summary::after{transition:none}}
+
+/* Fixes: hidden-Attribut gegen display-Regeln absichern, Checkbox eigenes Styling */
+.pg-karriere [hidden]{display:none!important}
+.k-field>.k-check{display:flex;font-weight:400;font-size:14.5px;color:var(--sub);margin:0}
+.k-check input{-webkit-appearance:none;appearance:none;border:1.5px solid #B9C7B8;border-radius:8px;background:#fff center/16px no-repeat;cursor:pointer}
+.k-check input:checked{background-color:var(--green);border-color:var(--green);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+.k-check input.is-bad{border-color:#B3261E}
+.k-check input{padding:0;width:26px;height:26px;min-width:26px}
+.k-opt input{padding:0;border:0}
+.k-opts-3 .k-opt span{padding:8px 4px;white-space:nowrap;font-size:15px}
+
+/* Einbettung in das bestehende Seitenlayout */
+#bewerbung{scroll-margin-top:96px}
+.k-formcard .k-form{margin-top:20px}
+.k-formcard .k-form input[type=text],.k-formcard .k-form input[type=tel]{background:#fff}
+.k-formcard .k-form input[type=text]:focus,.k-formcard .k-form input[type=tel]:focus{background:#fff}
+.k-formcard .k-alt{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.k-hero-btn{margin-top:26px}
+@media(max-width:960px){.k-hero-btn{width:100%;justify-content:center}}
+@media(min-width:720px){.k-alt-btns{grid-template-columns:1fr 1fr}}
+@media(min-width:961px) and (max-width:1200px){.k-alt-btns{grid-template-columns:1fr}}
+.k-split{align-items:start}
