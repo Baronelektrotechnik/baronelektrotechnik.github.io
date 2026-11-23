@@ -411,7 +411,7 @@ html{overflow-x:clip}
 .eng-band-sec{padding-top:0}
 .eng-band{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,4vw,64px);align-items:center;background:var(--mint-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px)}
 .eng-band-imgs{display:flex;align-items:flex-end;gap:16px}
-.eng-band-imgs img{border-radius:var(--r-md);box-shadow:var(--shadow-sm);background:#fff;min-width:0}
+.eng-band-imgs img{height:auto;border-radius:var(--r-md);box-shadow:var(--shadow-sm);background:#fff;min-width:0}
 .eng-band-imgs img:first-child{order:2;flex:0 1 68%;aspect-ratio:1200/850;object-fit:cover}
 .eng-band-imgs img:last-child{order:1;flex:0 1 30%;aspect-ratio:900/1282;object-fit:cover}
 .eng-band-txt .btn{margin-top:28px}
